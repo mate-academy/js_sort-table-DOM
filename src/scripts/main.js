@@ -15,12 +15,7 @@ class SortHtmlTable {
     const columnIndex = eventElement.cellIndex;
 
     if (this.sortColumn === columnIndex) {
-      // this.isSorted = this.isSorted ? false : true;
-      if (this.isSorted) {
-        this.isSorted = false;
-      } else {
-        this.isSorted = true;
-      }
+      this.isSorted = !this.isSorted;
     } else {
       this.sortColumn = columnIndex;
       this.isSorted = true;
@@ -38,12 +33,10 @@ class SortHtmlTable {
     tableRows.sort((a, b) => {
       switch (eventElement.dataset.type) {
         case 'string': {
-          return sortNum * (a.cells[columnIndex].textContent
-            .localeCompare(b.cells[columnIndex].textContent));
+          return sortNum * (a.cells[columnIndex].textContent.localeCompare(b.cells[columnIndex].textContent));
         }
         case 'number': {
-          return sortNum * (a.cells[columnIndex].textContent
-            - b.cells[columnIndex].textContent);
+          return sortNum * (a.cells[columnIndex].textContent - b.cells[columnIndex].textContent);
         }
       }
     });
