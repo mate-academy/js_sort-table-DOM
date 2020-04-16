@@ -13,18 +13,16 @@ cars.addEventListener('click', (evt) => {
 
   const tableRows = [...tableBody.children];
 
-  if (target.dataset.type === 'number') {
-    tableRows.sort((a, b) => {
+  tableRows.sort((a, b) => {
+    if (target.dataset.type === 'number') {
       return a.cells[column].innerText - b.cells[column].innerText;
-    });
-  }
+    }
 
-  if (target.dataset.type === 'string') {
-    tableRows.sort((a, b) => {
+    if (target.dataset.type === 'string') {
       return (a.cells[column].innerText
         .localeCompare(b.cells[column].innerText));
-    });
-  }
+    }
+  });
 
   tableBody.append(...tableRows);
 });
