@@ -23,5 +23,5 @@ This article may be helpful - [navigation](https://learn.javascript.ru/traversin
 
    Replace `<your_account>` with your Github username in the links
 
-    - [DEMO LINK](https://andreas-just.github.io/js_tree-from-object-DOM/)
-    - [PULL REQUEST](https://github.com/mate-academy/js_tree-from-object-DOM/pull/103/files)
+    - [DEMO LINK](https://andreas-just.github.io/js_sort-table-DOM/)
+    - [PULL REQUEST](https://github.com/mate-academy/js_sort-table-DOM/pull/19)
