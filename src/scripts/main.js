@@ -14,6 +14,7 @@ table.tHead.addEventListener('click', (click) => {
 
   sign = (th.cellIndex === sortedByIndex) ? -sign : 1;
   sortedByIndex = th.cellIndex;
+  highlightSorting(th, sign > 0);
 
   const getValue = row => row.cells[sortedByIndex].textContent;
   const sortingFunctionsMap = {
@@ -26,3 +27,13 @@ table.tHead.addEventListener('click', (click) => {
 
   tbody.append(...sortedRows);
 });
+
+const highlightSorting = (currentCell, isAsk) => {
+  for (const cell of table.tHead.rows[0].cells) {
+    cell.classList.remove('is-sorted');
+    cell.classList.remove('is-sorted-desc');
+  }
+
+  currentCell.classList.add('is-sorted');
+  currentCell.classList.toggle('is-sorted-desc', !isAsk);
+};
