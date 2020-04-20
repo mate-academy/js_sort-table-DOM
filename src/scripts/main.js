@@ -14,6 +14,7 @@ function makeSortable(table) {
     }
 
     const column = headTitle.dataset.column;
+    const sortType = headTitle.dataset.type;
     const rows = [...body.children];
 
     currentSign = (column !== currentColumn) ? 1 : -currentSign;
@@ -24,16 +25,14 @@ function makeSortable(table) {
       return row.children[currentColumn].textContent;
     };
 
-    rows.sort((rowA, rowB) => {
-      const sortType = headTitle.dataset.type;
+    const sortFunction = {
+      number: (a, b) => currentSign * (getText(a) - getText(b)),
+      string: (a, b) => currentSign * (
+        getText(a).localeCompare(getText(b))
+      ),
+    };
 
-      switch (sortType) {
-        case 'number':
-          return currentSign * (getText(rowA) - getText(rowB));
-        case 'string':
-          return currentSign * (getText(rowA).localeCompare(getText(rowB)));
-      }
-    });
+    rows.sort(sortFunction[sortType]);
 
     for (const row of rows) {
       body.append(row);
