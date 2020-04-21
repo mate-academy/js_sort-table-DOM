@@ -3,6 +3,8 @@
 function tableSort(table) {
   const thead = table.querySelector('thead');
   const tbody = table.querySelector('tbody');
+  let currentColumn = null;
+  let currentSign = 1;
 
   thead.addEventListener('click', (e) => {
     const th = e.target.closest('th');
@@ -14,6 +16,9 @@ function tableSort(table) {
       return;
     }
 
+    currentSign = (column !== currentColumn) ? 1 : -currentSign;
+    currentColumn = column;
+
     const getVal = (row) => {
       return row.children[column].textContent;
     };
@@ -21,9 +26,9 @@ function tableSort(table) {
     rows.sort((a, b) => {
       switch (sortType) {
         case 'number':
-          return getVal(a) - getVal(b);
+          return currentSign * (getVal(a) - getVal(b));
         case 'string':
-          return getVal(a).localeCompare(getVal(b));
+          return currentSign * (getVal(a).localeCompare(getVal(b)));
         default:
           return 0;
       }
