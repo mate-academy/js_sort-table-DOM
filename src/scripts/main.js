@@ -11,7 +11,7 @@ function catchTarget(e) {
 
 function rotation(list, cell) {
   list.sort((a, b) => {
-    return a.cells[cell].innerHTML[0] > b.cells[cell].innerHTML[0] ? 1 : -1;
+    return a.cells[cell].innerHTML > b.cells[cell].innerHTML ? 1 : -1;
   });
 
   list.forEach(tr => trWrapper.appendChild(tr));
