@@ -21,4 +21,4 @@ This article may be helpful - [navigation](https://learn.javascript.ru/traversin
 
 **Result**
 
-- [UPDATE DEMO LINK](https://<your_account>.github.io/<repo_name>/)
+- [DEMO LINK](https://hryshko-denys.github.io/js_sort-table-DOM/)
