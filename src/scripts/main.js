@@ -11,10 +11,10 @@ function catchTarget(e) {
 
 function rotation(list, cell) {
   list.sort((a, b) => {
-    return a.cells[cell].innerHTML > b.cells[cell].innerHTML ? 1 : -1;
+    return a.cells[cell].innerHTML.localeCompare(b.cells[cell].innerHTML);
   });
 
-  list.forEach(tr => trWrapper.appendChild(tr));
+  list.forEach(tr => trWrapper.append(tr));
 }
 
 table.addEventListener('click', e => {
@@ -35,7 +35,7 @@ table.addEventListener('click', e => {
           return a.cells[2].innerHTML - b.cells[2].innerHTML;
         });
 
-        trList.forEach(tr => trWrapper.appendChild(tr));
+        trList.forEach(tr => trWrapper.append(tr));
         break;
     }
   }
