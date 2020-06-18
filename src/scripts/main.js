@@ -3,7 +3,6 @@
 const table = document.getElementById('cars');
 const tBody = document.querySelector('tbody');
 const rows = [...tBody.children];
-const head = document.querySelector('tr');
 
 table.addEventListener('click', sort);
 
@@ -14,17 +13,12 @@ function sort(e) {
     return;
   }
 
-  let sorted;
+  const i = items.cellIndex;
 
-  for (let i = 0; i < head.children.length; i++) {
-    if (items === head.children[i]) {
-      sorted = rows
-        .sort((a, b) =>
-          (a.children[i]).textContent.localeCompare(b.children[i].textContent));
-    }
-  }
+  rows.sort((a, b) =>
+    (a.children[i]).textContent.localeCompare(b.children[i].textContent));
 
-  for (const element of sorted) {
+  for (const element of rows) {
     tBody.append(element);
   }
 }
