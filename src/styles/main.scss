@@ -8,13 +8,19 @@ body {
 
 table {
   text-align: center;
+  margin: 100px auto;
 }
 
 th {
   cursor: pointer;
   padding: 0 50px;
+  border: 1px solid blue;
 }
 
 th:hover {
   background: green;
+}
+
+td {
+  border: 1px solid grey;
 }
