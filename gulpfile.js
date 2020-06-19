@@ -75,7 +75,7 @@ gulp.task('processStyles', series('lintCss', function() {
     .pipe(sourcemaps.init())
     .pipe(sass())
     .pipe(autoprefixer({
-      browsers: ['last 2 versions'],
+      overrideBrowserslist: ['last 2 versions'],
     }))
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest(`${distDirectory}/styles`))
