@@ -36,9 +36,9 @@ function sortTableByColumn(table, column, asc = true) {
   tBody.append(...sortedRows);
 
   // Remember how the column is currently sorted
-  table.querySelectorAll('th')
-    .forEach(th => th.classList
-      .remove('th-sort-asc', 'th-sort-desc'));
+  // table.querySelectorAll('th')
+  //   .forEach(th => th.classList
+  //     .remove('th-sort-asc', 'th-sort-desc'));
 
   table.querySelector(`th:nth-child(${column + 1})`)
     .classList.toggle('th-sort-asc', asc);
@@ -47,13 +47,10 @@ function sortTableByColumn(table, column, asc = true) {
     .classList.toggle('th-sort-desc', !asc);
 }
 
-document.querySelectorAll('#cars th').forEach(headerCell => {
-  headerCell.addEventListener('click', () => {
-    const tableElement = headerCell.parentElement.parentElement.parentElement;
-    const headerIndex = Array.prototype
-      .indexOf.call(headerCell.parentElement.children, headerCell);
-    const currentIsAscending = headerCell.classList.contains('th-sort-asc');
+document.querySelector('thead').addEventListener('click', e => {
+  const tableElement = document.querySelector('#cars');
+  const headerIndex = e.target.cellIndex;
+  const currentIsAscending = e.target.classList.contains('th-sort-asc');
 
-    sortTableByColumn(tableElement, headerIndex, !currentIsAscending);
-  });
+  sortTableByColumn(tableElement, headerIndex, !currentIsAscending);
 });
