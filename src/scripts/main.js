@@ -4,8 +4,8 @@
  *  My first HTML sorted table
  *
  * @param {HTMLTableElement} table The table to sort
- * @param {number} column The index of the column to sort
- * @param {boolean} asc Determines if the sorting will be in ascending
+ * @param {Number} column The index of the column to sort
+ * @param {Boolean} asc Determines if the sorting will be in ascending
  */
 
 function sortTableByColumn(table, column, asc = true) {
@@ -26,8 +26,9 @@ function sortTableByColumn(table, column, asc = true) {
 
   // Remember how the column is currently sorted
   table.querySelectorAll('th')
-    .forEach(th => th.classList
-      .remove('th-sort-asc', 'th-sort-desc'));
+    .forEach(th => (
+      th.classList.remove('th-sort-asc', 'th-sort-desc')
+    ));
 
   table.querySelector('thead').firstElementChild.cells[column]
     .classList.toggle('th-sort-asc', asc);
